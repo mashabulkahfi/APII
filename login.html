@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<!--LOGIN PAGE-->
+<head>
+    <title>E-Toko Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+</head>
+
+<body>
+  <br>
+  <br>
+  <div align="center">
+    
+	<form action="login.php" method="post">
+	  <div class="container">
+		<h1>Login</h1>
+		
+		<hr>
+		<label for="username"><b>Username</b></label>
+		<input type="text" placeholder="Enter Username" name="username" required>
+
+		<label for="password"><b>Password</b></label>
+		<input type="password" placeholder="Enter Password" name="password" required>
+
+		<hr>
+		<button type="submit" class="registerbtn">Sign In</button>
+	  </div>
+	  
+		<div class="container signup">
+			<p>Don't have account? <a href="#" onclick="SignUp()">Sign Up</a>.</p>
+		</div>
+	</form>
+	  
+	  
+	  
+	  <script>
+          function validate_username(){
+              uname = document.getElementById('uname').value;
+              if (uname.length === 0){
+                  document.getElementById('uname_blank').innerHTML = "Username is required";
+                  return false;
+              }else{
+                  document.getElementById('uname_blank').innerHTML = "";
+                  return true;
+              }
+          }
+
+          function validate_password(){
+              pwd = document.getElementById('pwd').value;
+              if (pwd.length === 0){
+                  document.getElementById('pwd_blank').innerHTML = "Password is required";
+                  return false;
+              }else {
+                  document.getElementById('pwd_blank').innerHTML = "";
+                  return true;
+              }
+          }
+
+          function validate_form(){
+              if (!validate_username() && !validate_password()){
+                  return false;
+              }
+          }
+		  
+		  function SignUp(){
+			location.replace("register.html")
+		  }
+      </script>
+  </div>
+</body>
+</html>
