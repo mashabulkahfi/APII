@@ -5,7 +5,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "user_api";
+    $dbname = "progif";
 
 	$uname = $_POST['username'];
 	$pwd = $_POST['password'];
@@ -13,7 +13,7 @@
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT * FROM user WHERE username ='$uname' and password = '$pwd'");
+    $stmt = $conn->prepare("SELECT * FROM user_api WHERE username ='$uname' and password = '$pwd'");
     $stmt->execute();
 
     $item = $stmt->fetchAll();
@@ -24,7 +24,7 @@ try {
         $cookie_name = "username";
         $cookie_value = $uname;
         setcookie($cookie_name, $cookie_value, time()+ 86400, "/");
-        header("Location: index.php");
+        header("Location: app.js");
         die();
     }
 }
