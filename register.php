@@ -10,20 +10,20 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "user_api";
+    $dbname = "progif";
 
 
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = "INSERT INTO user(username, password, name)
-                  VALUES('$uname', '$pwd', '$name')";
+        $query = "INSERT INTO user_api(nama,username, password)
+                  VALUES('$name', '$uname', '$pwd')";
         $conn->exec($query);
         $cookie_name = "username";
         $cookie_value = $uname;
         setcookie($cookie_name, $cookie_value, time()+ (86400*30), "/");
         
-		header("Location: index.php");
+		header("Location: login.html");
 		
         die();
     }
